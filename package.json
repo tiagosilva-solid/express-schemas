@@ -1,0 +1,16 @@
+{
+  "name": "schemas",
+  "version": "1.0.0",
+  "description": "Schemas for Postman and Integration tests",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "newman": "^6.1.2",
+    "newman-reporter-htmlextra": "^1.23.1"
+  },
+  "scripts": {
+    "test": "newman run F1.postman_collection.json -e Production.postman_environment.json -r htmlextra --reporter-htmlextra-export ./results"
+  },
+  "author": "Tiago Silva",
+  "license": "ISC"
+}

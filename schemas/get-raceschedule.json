@@ -1,0 +1,137 @@
+{
+    "type": "object",
+    "required": [
+        "MRData"
+    ],
+    "properties": {
+        "MRData": {
+            "type": "object",
+            "required": [
+                "xmlns",
+                "series",
+                "url",
+                "limit",
+                "offset",
+                "total",
+                "RaceTable"
+            ],
+            "properties": {
+                "xmlns": {
+                    "type": "string"
+                },
+                "series": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "pattern": "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$"
+                },
+                "limit": {
+                    "type": "string",
+                    "minLength": 31,
+                    "maxLength": 33
+                },
+                "offset": {
+                    "type": "string"
+                },
+                "total": {
+                    "type": "string"
+                },
+                "RaceTable": {
+                    "type": "object",
+                    "required": [
+                        "season",
+                        "Races"
+                    ],
+                    "properties": {
+                        "season": {
+                            "type": "string"
+                        },
+                        "Races": {
+                            "type": "array",
+                            "additionalItems": true,
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "season",
+                                    "round",
+                                    "url",
+                                    "raceName",
+                                    "Circuit",
+                                    "date",
+                                    "time"
+                                ],
+                                "properties": {
+                                    "season": {
+                                        "type": "string"
+                                    },
+                                    "round": {
+                                        "type": "string",
+                                        "enum": ["1", "2", "3"]
+                                    },
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "raceName": {
+                                        "type": "string"
+                                    },
+                                    "Circuit": {
+                                        "type": "object",
+                                        "required": [
+                                            "circuitId",
+                                            "url",
+                                            "circuitName",
+                                            "Location"
+                                        ],
+                                        "properties": {
+                                            "circuitId": {
+                                                "type": "string"
+                                            },
+                                            "url": {
+                                                "type": "string"
+                                            },
+                                            "circuitName": {
+                                                "type": "string"
+                                            },
+                                            "Location": {
+                                                "type": "object",
+                                                "required": [
+                                                    "lat",
+                                                    "long",
+                                                    "locality",
+                                                    "country"
+                                                ],
+                                                "properties": {
+                                                    "lat": {
+                                                        "type": "string"
+                                                    },
+                                                    "long": {
+                                                        "type": "string"
+                                                    },
+                                                    "locality": {
+                                                        "type": "string"
+                                                    },
+                                                    "country": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "time": {
+                                        "type": "string",
+                                        "format": "time"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
